@@ -42,13 +42,13 @@
   "main": "next.config.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anilsoylu/foot-ordering.git"
+    "url": "git+https://github.com/anilsoylu/full-stack-nextjs-food-ordering-projects.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/anilsoylu/food-ordering/issues"
+    "url": "https://github.com/anilsoylu/full-stack-nextjs-food-ordering-projects/issues"
   },
-  "homepage": "https://github.com/anilsoylu/food-ordering#readme"
+  "homepage": "https://github.com/anilsoylu/full-stack-nextjs-food-ordering-projects#readme"
 }
