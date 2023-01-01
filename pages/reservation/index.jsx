@@ -1,12 +1,14 @@
-import React from "react";
-import Reservation from "../../components/Reservation";
+import React from "react"
+import Meta from "../../components/Meta"
+import Reservation from "../../components/Reservation"
 
 const Index = () => {
   return (
-    <React.Fragment>
+    <>
+      <Meta title="Rezervasyon" description="Rezervasyon" />
       <Reservation />
-    </React.Fragment>
-  );
-};
+    </>
+  )
+}
 
-export default Index;
+export default Index

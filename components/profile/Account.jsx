@@ -1,10 +1,11 @@
-import React from "react";
-import Input from "../../components/form/Input";
-import Title from "../../components/ui/Title";
-import { useFormik } from "formik";
-import { profileSchema } from "../../schema/profile";
-import axios from "axios";
-import { toast } from "react-toastify";
+import React from "react"
+import Input from "../../components/form/Input"
+import Title from "../../components/ui/Title"
+import { useFormik } from "formik"
+import { profileSchema } from "../../schema/profile"
+import axios from "axios"
+import { toast } from "react-toastify"
+import Meta from "../Meta"
 
 const Account = ({ user }) => {
   const onSubmit = async (values, actions) => {
@@ -12,14 +13,14 @@ const Account = ({ user }) => {
       const res = await axios.put(
         `${process.env.NEXT_PUBLIC_API_URL}/users/${user._id}`,
         values
-      );
+      )
       if (res.status === 200) {
-        toast.success("Profile updated successfully");
+        toast.success("Profile updated successfully")
       }
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
-  };
+  }
 
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
@@ -34,7 +35,7 @@ const Account = ({ user }) => {
       },
       onSubmit,
       validationSchema: profileSchema,
-    });
+    })
   const inputs = [
     {
       id: 1,
@@ -90,25 +91,28 @@ const Account = ({ user }) => {
       errorMessage: errors.bio,
       touched: touched.bio,
     },
-  ];
+  ]
   return (
-    <form className="lg:p-8 flex-1 lg:mt-0 mt-5" onSubmit={handleSubmit}>
-      <Title addClass="text-[40px]">Account Settings</Title>
-      <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-4">
-        {inputs.map((input) => (
-          <Input
-            key={input.id}
-            {...input}
-            onBlur={handleBlur}
-            onChange={handleChange}
-          />
-        ))}
-      </div>
-      <button className="btn-primary mt-4" type="submit">
-        Update
-      </button>
-    </form>
-  );
-};
+    <>
+      <Meta title="Account" />
+      <form className="lg:p-8 flex-1 lg:mt-0 mt-5" onSubmit={handleSubmit}>
+        <Title addClass="text-[40px]">Account Settings</Title>
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-4">
+          {inputs.map((input) => (
+            <Input
+              key={input.id}
+              {...input}
+              onBlur={handleBlur}
+              onChange={handleChange}
+            />
+          ))}
+        </div>
+        <button className="btn-primary mt-4" type="submit">
+          Update
+        </button>
+      </form>
+    </>
+  )
+}
 
-export default Account;
+export default Account
